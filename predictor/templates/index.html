@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Predição com ML</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nível do Rio Ládario</h1>
+        <form id="prediction-form" class="container-form">
+            <label for="temp">Temperatura Média (°C):</label>
+            <input type="number" name="temp" id="temp" placeholder="Ex: 25.0" required>
+
+            <label for="umidade">Umidade Média (%):</label>
+            <input type="number" name="umidade" id="umidade" placeholder="Ex: 60.0" required>
+
+            <label for="chuva">Precipitação (mm):</label>
+            <input type="number" name="chuva" id="chuva" placeholder="Ex: 10" required>
+
+            <button type="submit">Predizer</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                temp: parseFloat(formData.get('temp')),
+                umidade: parseFloat(formData.get('umidade')),
+                chuva: parseFloat(formData.get('chuva'))
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = `Nível: ${data.prediction.toFixed(2)}m`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

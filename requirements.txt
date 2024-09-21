@@ -1,0 +1,8 @@
+pandas 
+seaborn 
+statsmodels
+scikit-learn
+flask 
+numpy 
+pytest
+joblib
