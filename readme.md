@@ -4,6 +4,9 @@
 ## Visão Geral
 Este projeto tem como objetivo prever o nível do rio Ládario utilizando modelos de machine learning. Ele combina tecnologias Python e .NET para processamento de dados e predição, com módulos separados para aprendizado de máquina, predição e tratamento de dados.
 
+## Notebook
+- Pode ser acessado através desse [link](https://github.com/senhorbento/MVP-Intelligent-Systems/blob/main/RioL%C3%A1dario.ipynb)
+
 ## Requisitos do Sistema
 - **Tratamento de Base de Dados (C# .NET 8)**: Responsável por parte do tratamento de dados.
 - **Predictor (Python 3.12)**: Módulo responsável por realizar as predições do nível do rio.
