@@ -46,7 +46,7 @@ python predictor.py
 Para rodar os testes do modelo de predição, execute:
 ```bash
 cd predictor
-python test-model.py
+pytest test-model.py
 ```
 
 ## Fontes de Dados
